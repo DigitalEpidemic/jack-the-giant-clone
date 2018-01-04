@@ -37,6 +37,7 @@ public class PlayerScore : MonoBehaviour {
 				scoreCount++;
 			}
 			previousPosition = transform.position;
+			GameplayController.instance.SetScore (scoreCount);
 		}
 	}
 
@@ -45,6 +46,9 @@ public class PlayerScore : MonoBehaviour {
 			coinCount++;
 			scoreCount += 200;
 
+			GameplayController.instance.SetScore (scoreCount);
+			GameplayController.instance.SetCoinScore (coinCount);
+
 			AudioSource.PlayClipAtPoint (coinClip, transform.position);
 			target.gameObject.SetActive (false);
 		}
@@ -52,6 +56,9 @@ public class PlayerScore : MonoBehaviour {
 		if (target.tag == "Life") {
 			lifeCount++;
 			scoreCount += 300;
+
+			GameplayController.instance.SetScore (scoreCount);
+			GameplayController.instance.SetLifeScore (lifeCount);
 
 			AudioSource.PlayClipAtPoint (lifeClip, transform.position);
 			target.gameObject.SetActive (false);
