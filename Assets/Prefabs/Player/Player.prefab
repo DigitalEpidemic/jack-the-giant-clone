@@ -115,7 +115,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1316331923331934}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2dda5aafea642394798697298eeab8ff, type: 3}
   m_Name: 
@@ -133,6 +133,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb11d31548b4dd240ac99a3c33ba06cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 8
+  maxVelocity: 4
 --- !u!114 &114424041079873376
 MonoBehaviour:
   m_ObjectHideFlags: 1

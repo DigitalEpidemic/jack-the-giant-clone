@@ -29,7 +29,7 @@ public class PlayerBounds : MonoBehaviour {
 	void SetMinAndMaxX () {
 		Vector3 bounds = Camera.main.ScreenToWorldPoint (new Vector3 (Screen.width, Screen.height, 0));
 
-		maxX = bounds.x + (transform.position.x/3.25f);
-		minX = -bounds.x - (transform.position.x/3.25f);
+		maxX = bounds.x - 0.4f;
+		minX = -bounds.x + 0.4f;
 	}
 }
