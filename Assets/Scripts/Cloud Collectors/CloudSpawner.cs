@@ -154,18 +154,17 @@ public class CloudSpawner : MonoBehaviour {
 										collectables [random].SetActive (true);
 									}
 								} else {
-										collectables [random].transform.position = temp2;
-										collectables [random].SetActive (true);
+									collectables [random].transform.position = temp2;
+									collectables [random].SetActive (true);
 								}
 
 							}
 						}
 					}
 				}
-
 			}
 
 		}
 	}
 
-}
+} // CloudSpawner
