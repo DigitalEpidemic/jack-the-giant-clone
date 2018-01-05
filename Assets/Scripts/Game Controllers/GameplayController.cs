@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Advertisements;
 
 public class GameplayController : MonoBehaviour {
 
@@ -85,5 +86,26 @@ public class GameplayController : MonoBehaviour {
 	public void ReadyToStart () {
 		Time.timeScale = 1f;
 		readyButton.SetActive (false);
+	}
+
+	public void ShowRewardedVideo ()
+	{
+		ShowOptions options = new ShowOptions();
+		options.resultCallback = HandleShowResult;
+
+		Advertisement.Show("rewardedVideo", options);
+	}
+
+	public void HandleShowResult (ShowResult result)
+	{
+		if(result == ShowResult.Finished) {
+			Debug.Log("Video completed - Offer a reward to the player");
+
+		}else if(result == ShowResult.Skipped) {
+			Debug.LogWarning("Video was skipped - Do NOT reward the player");
+
+		}else if(result == ShowResult.Failed) {
+			Debug.LogError("Video failed to show");
+		}
 	}
 }
