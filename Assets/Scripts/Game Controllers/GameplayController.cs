@@ -88,24 +88,28 @@ public class GameplayController : MonoBehaviour {
 		readyButton.SetActive (false);
 	}
 
-	public void ShowRewardedVideo ()
-	{
+	public void ShowRewardedVideo () {
 		ShowOptions options = new ShowOptions();
 		options.resultCallback = HandleShowResult;
 
 		Advertisement.Show("rewardedVideo", options);
 	}
 
-	public void HandleShowResult (ShowResult result)
-	{
-		if(result == ShowResult.Finished) {
-			Debug.Log("Video completed - Offer a reward to the player");
+	public void HandleShowResult (ShowResult result) {
+		if (result == ShowResult.Finished) {
+			Debug.Log ("Video completed - Offer a reward to the player");
+			if (PlayerScore.lifeCount < 2) {
+				PlayerScore.lifeCount++;
+				lifeText.text = "x" + PlayerScore.lifeCount;
+			} else {
+				Debug.Log ("Too many lives");
+			}
 
-		}else if(result == ShowResult.Skipped) {
-			Debug.LogWarning("Video was skipped - Do NOT reward the player");
+		} else if (result == ShowResult.Skipped) {
+			Debug.LogWarning ("Video was skipped - Do NOT reward the player");
 
-		}else if(result == ShowResult.Failed) {
-			Debug.LogError("Video failed to show");
+		} else if (result == ShowResult.Failed) {
+			Debug.LogError ("Video failed to show");
 		}
 	}
 }
